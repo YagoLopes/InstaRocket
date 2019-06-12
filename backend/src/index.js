@@ -1,5 +1,5 @@
 const express = require("express");
-//const mongoose = require("mongoose");
+const mongoose = require("mongoose");
 const path = require("path");
 const cors = require("cors");
 
@@ -7,17 +7,14 @@ const app = express();
 
 const server = require("http").Server(app);
 const io = require("socket.io")(server);
-/*
-//USER E PASSWORD FCTICIOS COLOQUE OS VERDADEIROS
-//REMOVA TAMBEM AS TAGS <>
 
 mongoose.connect(
-  "mongodb+srv://<user>:<password>@cluster0-wm7ys.mongodb.net/test?retryWrites=true&w=majority",
+  "mongodb+srv://root:root@cluster0-wm7ys.mongodb.net/test?retryWrites=true&w=majority",
   {
     useNewUrlParser: true
   }
 );
-*/
+
 app.use((req, res, next) => {
   req.io = io;
   next();
