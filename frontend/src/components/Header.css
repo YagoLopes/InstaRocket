@@ -1,0 +1,16 @@
+header#main-header {
+  background: #fff;
+  height: 72px;
+  border-bottom: 1px solid #ddd;
+}
+header#main-header .header-content {
+  width: 100%;
+  max-width: 980px; /*Quando a logo atingir a largura maxima ela distancia da borda*/
+  margin: 0 auto; /*centraliza os items*/
+  height: 72px;
+  padding: 0 30px;
+
+  display: flex;
+  align-items: center; /*CENTRALIZA OS ITEMS NO CENTRO DA DIV*/
+  justify-content: space-between; /*Alinha um item totalmente a esquerda e o outro totalmente a direita*/
+}
