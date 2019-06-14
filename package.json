@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "react-router-dom": "^5.0.1",
-    "socket.io-client": "^2.2.0"
-  }
-}
