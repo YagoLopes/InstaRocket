@@ -8,12 +8,19 @@ const app = express();
 const server = require("http").Server(app);
 const io = require("socket.io")(server);
 
-mongoose.connect(
-  "mongodb+srv://root:root@cluster0-wm7ys.mongodb.net/test?retryWrites=true&w=majority",
-  {
-    useNewUrlParser: true
-  }
-);
+mongoose
+  .connect("mongodb://mongodb/instarocket", { useNewUrlParser: true })
+  .then(() => {
+    console.log("#############################################");
+    console.log("Connected to MongoDB");
+    console.log("#############################################");
+  })
+  .catch(err => {
+    console.log("#############################################");
+    console.log(err);
+    console.log("#############################################");
+    process.exit(1); //quit the process
+  });
 
 app.use((req, res, next) => {
   req.io = io;
@@ -26,4 +33,4 @@ app.use(
   express.static(path.resolve(__dirname, "..", "uploads", "resized"))
 );
 app.use(require("./routes"));
-server.listen(3333);
+server.listen(4000);
