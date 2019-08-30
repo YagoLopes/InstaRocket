@@ -14,7 +14,7 @@ export default class Feed extends Component {
   };
 
   async componentDidMount() {
-    this.registerToSocket();
+    this.registerToSocket(); // Registrando o socket.io
     const response = await api.get("posts");
     this.setState({ feed: response.data });
   }
@@ -36,9 +36,7 @@ export default class Feed extends Component {
       //estou ouvindo os dados de um novo like
       this.setState({
         feed: this.state.feed.map(
-          (
-            post // ao invez de criar um novo estado para like eu estou percorrendo a variavel feed e procurando os dados do like
-          ) => (post._id === likedPost.id ? likedPost : post) //se o post que eu estou varrendo é igual ao post que eu dei um like eu retorno o post com o like novo se não eu retorno o post como ele já é
+          post => (post._id === likedPost._id ? likedPost : post) //se o post que eu estou varrendo é igual ao post que eu dei um like eu retorno o post com o like novo se não eu retorno o post como ele já é
         )
       });
     });
